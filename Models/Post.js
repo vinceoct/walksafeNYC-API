@@ -2,14 +2,13 @@ const { Schema } = require('mongoose')
 
 const postSchema = new Schema (
 {
-    post_id:{type: Number, required: true},
-    post_date: {type: String, required: true}, 
-    post_time:{String, required: true},
-    user_account:{type: String, required: true},
-    status:{ type: Boolean, required: true},
-    post_type:{ type: String, required: true},
-    post_reply: { type: String, required: true}
-
+    lat:{type: Number, require: true},
+    lon:{type: Number,  require: true },
+    post_date: {type: String, required: true},
+    post_time: {type: String, required: true}, 
+    user_account:{type: Schema.Types.ObjectId, ref: 'UserAccount', required: true},
+    incident_type:{ type: String, required: true},
+    comment:{ type: String, required: true}
     
 },
 {
