@@ -15,3 +15,5 @@ app.use("/", express.static("client"));
 
 app.use("/api", AppRouter);
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`));
+
+
