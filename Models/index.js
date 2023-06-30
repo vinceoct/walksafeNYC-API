@@ -6,7 +6,7 @@ const userAccountSchema = require('./userAccount')
 
 const Admin = mongoose.model('Admin', adminSchema)
 const Post = mongoose.model('/Post', postSchema)
-const UserAccount = mongoose.model('/userAccount', userAccountSchema)
+const UserAccount = mongoose.model('/UserAccount', userAccountSchema)
 
 module.exports = {
     Admin,
