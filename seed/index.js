@@ -6,6 +6,8 @@ console.log("index.js in seed is running");
 db.once('open', async () => {
   console.log('Connected to MongoDB');
 
+
+
   const main = async () => {
     const admins = [
       {
@@ -30,20 +32,18 @@ db.once('open', async () => {
       }
     ];
 
-    const posts = [
-      {
-        post_id: 0,
-        post_date: "2023-06-30-0100",
-        user_account: 1,
-        status: true,
-        post_type: "Harassment",
-        post_reply: "Your post has been submitted and is under review. Thank you for your patience. We will contact you within 10-20 minutes."
-      }
-    ];
+    await Admin.collection.drop()
+
+    await Admin.insertMany(admins);
+
+    const allAdmin= await Admin.find()
+
+    console.log(allAdmin)
+
+    console.log("Admins inserted successfully!");
 
     const userAccounts = [
       {
-        user_account: "AnneBelleJ00",
         first_name: "Annebell",
         last_name: "Jones",
         email: "annabelljones00@gmail.com",
@@ -53,13 +53,40 @@ db.once('open', async () => {
       }
     ];
 
-    await Admin.insertMany(admins);
-    console.log("Admins inserted successfully!");
-    await Post.insertMany(posts);
-    console.log("Posts inserted successfully!");
+    await UserAccount.collection.drop()
+
     await UserAccount.insertMany(userAccounts);
+
+    const allUserAccount= await UserAccount.find()
+
+    console.log(allUserAccount)
+
     console.log("User accounts inserted successfully!");
+
+    const posts = [
+      {
+        lat: 0,
+        lon: 1,
+        post_date: "2023-06-30",
+        post_time: "02:23",
+        user_account: allUserAccount[0]._id,
+        incident_type: "Harassment",
+        comment: "Your post has been submitted and is under review. Thank you for your patience. We will contact you within 10-20 minutes."
+      }
+    ];
+
+    await Post.collection.drop()
+
+    await Post.insertMany(posts);
+
+    const allPost= await Post.find()
+
+    console.log(allPost)
+
+    console.log("Posts inserted successfully!");
+    
   };
 
   await main();
+  db.close()
 });
