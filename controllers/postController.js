@@ -2,7 +2,7 @@ const { Post } = require('../Models')
 
 
 
-const getPosts = async (req, res) => {
+const getAllPosts = async (req, res) => {
   try {
     const posts = await Post.find({});
     return res.json(posts);
@@ -98,7 +98,7 @@ const getPostByUser = async (req, res) => {
 };
 
 module.exports = {
-  getPosts,
+  getAllPosts,
   getPostById,
   createPost,
   updatePost,
