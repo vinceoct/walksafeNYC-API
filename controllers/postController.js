@@ -1,9 +1,11 @@
-const { UserAccount } = require('../models')
-const userAccountSchema = require('../models/userAccount')
+const { Post } = require('../Models')
+const postSchema = require('../Models/postSchema')
 
-////// Find by user id  //////
+
+////// Find user by Name //////
 
 const getUserById = async (req, res) => {
+   
     try{
      const {user_account} = req.params 
      const userId = await Post.findOne({user_account})
@@ -14,7 +16,5 @@ const getUserById = async (req, res) => {
          res.send('Account not found')
     }
  }
- 
-
 
 

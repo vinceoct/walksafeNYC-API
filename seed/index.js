@@ -1,5 +1,5 @@
 const db = require('../db');
-const { Admin, Post, UserAccount } = require('../models');
+const { Admin, Post, UserAccount } = require('../Models');
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 console.log("index.js in seed is running");
 
