@@ -29,10 +29,11 @@ const getUserByName = async (req, res) => {
 
      const getUserById = async (req, res) => {
      try{
-          const {user_account} = req.params 
-          const userId = await UserAccount.findOne({user_account})
-          if (!userId) throw Error('Account not found')
-          res.json(userId)
+          const { id } = req.params 
+          const userId = await UserAccount.findById(id)
+          if (userId) {
+          res.json(userId) 
+     } else { return res.json(404).send('error')}
      } catch (e) {
           console.log(e)
           res.send('Account not found')
