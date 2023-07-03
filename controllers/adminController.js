@@ -34,17 +34,21 @@ const createAdmin = async (req, res) => {
   }
 };
 
-const updateAdmin = async (req, res) => {
+const updatObjectById = async (req, res, collection) => {
   try {
-    let { id } = req.params;
-    let cast = await Admin.findByIdAndUpdate(id, req.body, { new: true });
-    if (!admin) {
-      return res.status(404).json({ message: "Admin not found" });
-    }
-    return res.status(200).json(admin);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    const { id } = req.params;
+    const updateAdmin = await collection.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    return res.json(updateAdmin);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Error! Failed to update user");
   }
+};
+
+const updateAdmin = async (req, res) => {
+  updatObjectById(req, res, Admin);
 };
 
 const deleteAdmin = async (req, res) => {
