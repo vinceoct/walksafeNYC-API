@@ -6,7 +6,7 @@ const postSchema = new Schema (
     lon:{type: Number,  require: true },
     post_date: {type: String, required: true},
     post_time: {type: String, required: true}, 
-    user_account:{type: Schema.Types.ObjectId, ref: 'UserAccount',},
+    user_account:{type: Schema.Types.ObjectId, ref: 'UserAccount'},
     incident_type:{ type: String, required: true},
     comment:{ type: String, required: true}
     

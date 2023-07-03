@@ -36,7 +36,7 @@ const createPost = async (req, res) => {
       incident_type,
       comment,
     } = req.body;
-    const post = await Admin.create({
+    const post = await Post.create({
       lat,
       lon,
       post_date,
