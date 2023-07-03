@@ -6,6 +6,7 @@ Router.get('/:id', controller.getPostById)
 Router.post('/', controller.createPost)
 Router.put('/:id', controller.updatePost)
 Router.delete('/:id', controller.deletePost)
+Router.get('/:userId', controller.getPostByUser)
 
 
 
