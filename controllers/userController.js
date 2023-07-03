@@ -13,9 +13,9 @@ const getAllUsers = async (req, res) => {
 
 const getUserByName = async (req, res) => {
      try{
-         const {first_name} = req.params
-         console.log(first_name)
-         const userName = await UserAccount.findOne({first_name})
+         const { first_name } = req.params
+         const regex = new RegExp(first_name, 'i')
+         const userName = await UserAccount.findOne({ first_name: regex })
          if (!userName) throw Error('Account not found!')
          res.json(userName)
      } catch (e){
@@ -47,7 +47,7 @@ const getUserByName = async (req, res) => {
    const createUser = async  (req, res, collection ) => {
      try { 
           const newUser = new UserAccount(req.body)
-          await collection.insertOne(newUser)
+          await newUser.save()
           return res.json(newUser)
      } catch (e) {
           console.log(e)
