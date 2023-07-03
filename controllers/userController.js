@@ -1,6 +1,4 @@
 const { UserAccount } = require('../Models')
-const userAccountSchema = require('../Models/userAccount')
-
 
 ////// Find all users  //////
 
