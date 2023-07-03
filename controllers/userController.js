@@ -2,9 +2,6 @@ const { UserAccount } = require('../Models')
 const userAccountSchema = require('../Models/userAccount')
 
 
-
-
-
 ////// Find all users  //////
 
 const getAllUsers = async (req, res) => {
@@ -95,7 +92,6 @@ const getUserByName = async (req, res) => {
      const deleteUser = async (req, res) => {
           deleteObjectById(req, res, UserAccount)
      }
-
 
 
  module.exports= {

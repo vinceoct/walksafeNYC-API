@@ -32,7 +32,7 @@ db.once('open', async () => {
       }
     ];
 
-    await Admin.collection.drop()
+    // await Admin.collection.drop()
 
     await Admin.insertMany(admins);
 
@@ -53,7 +53,7 @@ db.once('open', async () => {
       }
     ];
 
-    await UserAccount.collection.drop()
+    // await UserAccount.collection.drop()
 
     await UserAccount.insertMany(userAccounts);
 
@@ -75,7 +75,7 @@ db.once('open', async () => {
       }
     ];
 
-    await Post.collection.drop()
+    // await Post.collection.drop()
 
     await Post.insertMany(posts);
 
