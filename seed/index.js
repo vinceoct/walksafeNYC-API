@@ -33,7 +33,7 @@ db.once('open', async () => {
     ];
 
     // await Admin.collection.drop()
-
+    await Admin.deleteMany()
     await Admin.insertMany(admins);
 
     const allAdmin= await Admin.find()
@@ -54,7 +54,7 @@ db.once('open', async () => {
     ];
 
     // await UserAccount.collection.drop()
-
+    await UserAccount.deleteMany()
     await UserAccount.insertMany(userAccounts);
 
     const allUserAccount= await UserAccount.find()
@@ -65,8 +65,8 @@ db.once('open', async () => {
 
     const posts = [
       {
-        lat: 0,
-        lon: 1,
+        lat: 40,
+        lon: -74,
         post_date: "2023-06-30",
         post_time: "02:23",
         user_account: allUserAccount[0]._id,
@@ -76,7 +76,7 @@ db.once('open', async () => {
     ];
 
     // await Post.collection.drop()
-
+    await Post.deleteMany()
     await Post.insertMany(posts);
 
     const allPost= await Post.find()

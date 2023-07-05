@@ -1,7 +1,13 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/walksafeDB")
+  .connect(
+    "mongodb+srv://vincevullo:VrEf0Hn0u44ns686@cluster0.8zm9jhe.mongodb.net/walksafedb?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Successfully connected to mongoDB");
   })
