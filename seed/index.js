@@ -32,7 +32,6 @@ db.once('open', async () => {
       }
     ];
 
-    // await Admin.collection.drop()
     await Admin.deleteMany()
     await Admin.insertMany(admins);
 
@@ -49,8 +48,40 @@ db.once('open', async () => {
         email: "annabelljones00@gmail.com",
         password: "wonderWoman2001!",
         date_of_birth: "1986-02-23",
+        gender: "Female",
+      },
+      {
+        first_name: "Vincent",
+        last_name: "Vullo",
+        email: "vincevullo@gmail.com",
+        password: "1morePassword2remember!",
+        date_of_birth: "2023-04-03",
+        gender: "Male",
+      },
+      {
+        first_name: "Dan",
+        last_name: "Mulka",
+        email: "openmail1121@gamil.com",
+        password: "Koolbrahh@100",
+        date_of_birth: "1992-07-29",
+        gender: "Male",
+      },
+      {
+        first_name: "Britney",
+        last_name: "Minaj",
+        email: "nickiminaj@gmail.com",
+        password: "Nickiminaj123!",
+        date_of_birth: "2023-07-09",
+        gender: "Female",
+      },
+      {
+        first_name: "Max",
+        last_name: "Camilletti",
+        email: "mhcamilletti@gmail.com",
+        password: "Password123!",
+        date_of_birth: "1999-09-16",
         gender: "Female"
-      }
+      },
     ];
 
     // await UserAccount.collection.drop()
@@ -65,17 +96,17 @@ db.once('open', async () => {
 
     const posts = [
       {
-        lat: 40,
-        lon: -74,
+        lat: 40.7633794,
+        lon: -73.988705,
         post_date: "2023-06-30",
         post_time: "02:23",
         user_account: allUserAccount[0]._id,
-        incident_type: "Harassment",
-        comment: "Your post has been submitted and is under review. Thank you for your patience. We will contact you within 10-20 minutes."
-      }
+        incident_type: "Verbal Harassment",
+        comment:
+          "A man yelled at me, and made inappropriate comments about my outfit.",
+      },
     ];
 
-    // await Post.collection.drop()
     await Post.deleteMany()
     await Post.insertMany(posts);
 
@@ -83,8 +114,7 @@ db.once('open', async () => {
 
     console.log(allPost)
 
-    console.log("Posts inserted successfully!");
-    
+    console.log("Posts inserted successfully!");    
   };
 
   await main();
